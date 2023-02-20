@@ -18,6 +18,10 @@ label {
     font-size: 15px;
 }
 
+i{
+    color: #20404A;
+}
+
 button,
 input[type="file"],
 a,
@@ -200,6 +204,11 @@ body {
                 outline: none;
             }
         }
+    }
+
+    .footer{
+        display: flex;
+        background: #f6f6f6;
     }
 }
 

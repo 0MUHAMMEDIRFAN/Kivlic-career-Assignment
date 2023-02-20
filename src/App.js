@@ -2,6 +2,7 @@ import "./style.scss"
 import Banner from "./Pages/Banner.js";
 import Navbar from "./Pages/Navbar";
 import FormContainer from "./Pages/FormContainer";
+import Footer from "./Pages/Footer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Navbar/>
       <Banner/>
       <FormContainer/>
+      <Footer/>
     </div>
   );
 }
