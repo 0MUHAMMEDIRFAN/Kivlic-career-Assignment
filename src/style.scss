@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    // outline: 1px solid blue;
+}
+
+input {
+    border: #707070 1px solid;
+    outline: none;
+    height: 50px;
+    width: 300px;
+    padding-inline: 15px;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+button,input[type="file"],a{
+    cursor: pointer;
+}
+
+input:focus:valid {
+    border-color: green;
+    border-width: 2px;
+}
+
+input:invalid {
+    border-color: red;
+    border-width: 2px;
+    // animation: shake 1s alternate 0;
+}
+
+label {}
+
+body {
+    // background: #e6e6e6;
+    padding: 0;
+    margin: 0;
+    font-family: "segoe ui";
+
+    .navbar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        padding: 20px 50px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+
+        .logo {
+            height: 100%;
+        }
+
+        .navs {
+            display: flex;
+            list-style-type: none;
+            gap: 50px;
+
+
+        }
+
+        .signin {
+            display: flex;
+            gap: 20px;
+
+        }
+
+
+    }
+
+    .banner {
+        height: 593px;
+        background-image: url(images/background.png);
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        // overflow: hidden;
+        .padding {
+            height: 70px;
+            width: 100%;
+        }
+
+        .contents {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: calc(100% - 70px);
+
+            .left {
+                width: 50%;
+                display: flex;
+                // align-items: center;
+                // justify-content: center;
+                flex-direction: column;
+                // text-align: center;
+                height: 100%;
+
+                .careers {
+                    // height: 50%;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                p {
+                    font-weight: 900;
+                    font-size: 25px;
+
+                    span {
+
+                        font-size: 15px;
+                    }
+                }
+
+                .note {
+                    height: 50%;
+                }
+            }
+
+            .right {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                padding: 50px;
+
+                img {
+                    width: 40%;
+                    // position: absolute;
+                    box-sizing: border-box;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+   
+
+}
