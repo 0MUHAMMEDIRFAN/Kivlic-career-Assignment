@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Kivlic-career-Assignment/static/css/main.76b0dfab.css",
-    "main.js": "/Kivlic-career-Assignment/static/js/main.684b00ac.js",
+    "main.css": "/Kivlic-career-Assignment/static/css/main.498420a1.css",
+    "main.js": "/Kivlic-career-Assignment/static/js/main.2abd9ad8.js",
     "static/media/VACANT.png": "/Kivlic-career-Assignment/static/media/VACANT.ba69c662e46518bc8122.png",
     "index.html": "/Kivlic-career-Assignment/index.html",
-    "main.76b0dfab.css.map": "/Kivlic-career-Assignment/static/css/main.76b0dfab.css.map",
-    "main.684b00ac.js.map": "/Kivlic-career-Assignment/static/js/main.684b00ac.js.map"
+    "main.498420a1.css.map": "/Kivlic-career-Assignment/static/css/main.498420a1.css.map",
+    "main.2abd9ad8.js.map": "/Kivlic-career-Assignment/static/js/main.2abd9ad8.js.map"
   },
   "entrypoints": [
-    "static/css/main.76b0dfab.css",
-    "static/js/main.684b00ac.js"
+    "static/css/main.498420a1.css",
+    "static/js/main.2abd9ad8.js"
   ]
 }
