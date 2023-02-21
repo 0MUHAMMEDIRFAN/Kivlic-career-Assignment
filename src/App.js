@@ -1,18 +1,28 @@
 import "./style.scss"
-import Banner from "./Pages/Banner.js";
-import Navbar from "./Pages/Navbar";
-import FormContainer from "./Pages/FormContainer";
-import Footer from "./Pages/Footer";
-import CopyRight from "./Pages/CopyRight";
+
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
+import About from "./Pages/About";
+import Services from "./Pages/Services";
+import Pricing from "./Pages/Pricing";
+import Contact from "./Pages/Contact";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Banner/>
-      <FormContainer/>
-      <Footer/>
-      <CopyRight/>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/services" element={<Services/>}/>
+          <Route path="/pricing" element={<Pricing/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
