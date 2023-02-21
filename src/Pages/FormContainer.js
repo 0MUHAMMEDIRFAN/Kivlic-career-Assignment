@@ -28,6 +28,7 @@ function FormContainer() {
                     <div>
                         <p>Telephone</p>
                         <input type="text" id='phone'/>
+                        <p>Please include your country and area code</p>
                     </div>
                 </div>
                 <div className="cv">

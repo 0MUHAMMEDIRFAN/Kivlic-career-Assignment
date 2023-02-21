@@ -1,44 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+@mixin tabletS{
+    @media screen and (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 833px) {
+        @content;
+    }
+}
+
+@mixin laptopS {
+    @media screen and (max-width: 930px) {
+        @content;
+    }
+}
+
+@mixin laptopM {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
 
 * {
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
-    // margin: 0;
     // outline: 1px solid blue;
-}
 
-input,
-label {
-    border: #707070 1px solid;
-    outline: none;
-    height: 50px;
-    width: 320px;
-    padding-inline: 15px;
-    border-radius: 15px;
-    font-size: 15px;
-}
+    input,
+    label {
+        border: #707070 1px solid;
+        outline: none;
+        height: 50px;
+        width: 300px;
+        padding-inline: 15px;
+        border-radius: 15px;
+        font-size: 15px;
 
-i {
-    color: #20404A;
-}
+        @include mobile{
+            width: 230px;
+        }
+    }
 
-button,
-input[type="file"],
-a,
-label {
-    cursor: pointer;
-}
+    i {
+        color: #20404A;
+    }
 
-input:focus:valid {
-    border-color: green;
-    border-width: 2px;
-}
+    button,
+    input[type="file"],
+    a,
+    label {
+        cursor: pointer;
+    }
 
-input:invalid {
-    border-color: red;
-    border-width: 2px;
-    animation: shake .2s;
+    input:focus:valid {
+        border-color: green;
+        border-width: 2px;
+    }
+
+    input:invalid {
+        border-color: red;
+        border-width: 2px;
+        animation: shake .2s;
+    }
+
 }
 
 
@@ -47,6 +80,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: "segoe ui";
+    min-width: 250px;
 
     .navbar {
         width: 100%;
@@ -70,6 +104,13 @@ body {
             list-style-type: none;
             gap: 50px;
 
+            @include laptopS {
+                position: absolute;
+                gap: 10px;
+                top: 0;
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+            }
 
         }
 
@@ -150,7 +191,14 @@ body {
     }
 
     .formContainer {
-        padding-inline: 10%;
+        padding-inline: 10% 0%;
+
+        // @include tablet{
+        //     justify-content: center;
+        //     text-align: center;
+        //     align-items: center;
+        // }
+
 
         .heading {
             h2 {
@@ -174,6 +222,7 @@ body {
             .details {
                 display: flex;
                 gap: 20px;
+                flex-wrap: wrap;
             }
 
             .cv {
@@ -211,10 +260,16 @@ body {
     .footer {
         display: flex;
         background: #f6f6f6;
+        flex-wrap: wrap-reverse;
         padding: 5% 10%;
         justify-content: space-between;
-        // align-items: center;
         gap: 5%;
+
+        @include tablet{
+            // align-items: center;
+            justify-content: center;
+
+        }
 
 
         p {
@@ -224,6 +279,12 @@ body {
 
         .about {
             flex: 2;
+            min-width: 200px;
+
+
+            @include tablet{
+                order: 2;
+            }
 
             img {
                 height: 30px;
@@ -238,13 +299,19 @@ body {
             display: flex;
             flex-direction: column;
             flex: 1;
+            min-width: 200px;
+            @include tablet{
+                order: 1;
+            }
         }
-
+        
         .question {
             flex: 2;
             display: flex;
+            gap: 10px;
             flex-direction: column;
             justify-content: space-between;
+            min-width: 200px;
 
             h3 {
                 font-size: 30px;
@@ -264,13 +331,14 @@ body {
                 margin-block: 10px;
 
                 i {
-                    font-size: 40px;
+                    font-size: 30px;
                 }
             }
 
             .store {
                 display: flex;
                 gap: 20px;
+                flex-wrap: wrap;
 
                 img {
                     height: 50px;
