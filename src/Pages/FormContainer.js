@@ -19,11 +19,11 @@ function FormContainer() {
                 <div className="details">
                     <div>
                         <p>First Name</p>
-                        <input type="text" id='fname' pattern="[A-Za-z]*" />
+                        <input type="text" id='fname' pattern="[A-Za-z]*" title='Only Letters allowed'/>
                     </div>
                     <div>
                         <p>Last Name</p>
-                        <input type="text" id='lname' pattern="[A-Za-z]*" />
+                        <input type="text" id='lname' pattern="[A-Za-z]*" title='Only Letters allowed'/>
                     </div>
                     <div>
                         <p>Telephone</p>

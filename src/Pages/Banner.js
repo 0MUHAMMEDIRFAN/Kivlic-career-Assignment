@@ -8,7 +8,6 @@ function Banner() {
             <div className="padding"></div>
             <div className="contents">
                 <div className="left">
-
                     <p className='careers'>Careers</p>
                     <div className="note">
                         <p>Submit Your Resume <span>Become discoverable for all of our roles</span></p>
