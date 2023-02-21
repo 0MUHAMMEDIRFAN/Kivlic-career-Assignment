@@ -37,6 +37,9 @@ function Footer() {
                     <img src={playstore} alt="" />
                 </div>
             </div>
+            <div className="footernav">
+                &gt;
+            </div>
         </div >
     )
 }
