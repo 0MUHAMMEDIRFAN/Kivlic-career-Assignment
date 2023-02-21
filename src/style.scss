@@ -5,7 +5,8 @@
         @content;
     }
 }
-@mixin tabletS{
+
+@mixin tabletS {
     @media screen and (max-width: 599px) {
         @content;
     }
@@ -45,7 +46,7 @@
         border-radius: 15px;
         font-size: 15px;
 
-        @include mobile{
+        @include mobile {
             width: 230px;
         }
     }
@@ -192,12 +193,15 @@ body {
 
     .formContainer {
         padding-inline: 10% 0%;
+        display: flex;
+        flex-direction: column;
 
-        // @include tablet{
-        //     justify-content: center;
-        //     text-align: center;
-        //     align-items: center;
-        // }
+        @include tablet {
+            padding-inline: 10% 10%;
+            justify-content: center;
+            // text-align: center;
+            align-items: center;
+        }
 
 
         .heading {
@@ -213,23 +217,54 @@ body {
 
         .form {
             margin-block: 30px;
+            display: flex;
+            flex-direction: column;
+
+            @include tablet{
+                justify-content: center;
+                align-items: center;
+            }
 
             p {
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                font-size: 13px;
+                font-size: 12px;
+            }
+
+            .email {
+                display: flex;
+
+                @include tablet {
+                    justify-content: center;
+                    align-items: center;
+                }
             }
 
             .details {
                 display: flex;
-                gap: 20px;
+                column-gap: 67px;
                 flex-wrap: wrap;
+
+                @include tablet {
+                    justify-content: center;
+                    align-items: center;
+                }
             }
 
             .cv {
+                display: flex;
+                flex-direction: column;
+
+                @include tablet {
+                    justify-content: center;
+                    align-items: center;
+                }
+
                 label {
                     display: flex;
                     justify-content: space-between;
                     background: #BFBFBF;
+
+
 
                     img {
                         height: 100%;
@@ -265,7 +300,7 @@ body {
         justify-content: space-between;
         gap: 5%;
 
-        @include tablet{
+        @include tablet {
             // align-items: center;
             justify-content: center;
 
@@ -282,7 +317,7 @@ body {
             min-width: 200px;
 
 
-            @include tablet{
+            @include tablet {
                 order: 2;
             }
 
@@ -300,11 +335,12 @@ body {
             flex-direction: column;
             flex: 1;
             min-width: 200px;
-            @include tablet{
+
+            @include tablet {
                 order: 1;
             }
         }
-        
+
         .question {
             flex: 2;
             display: flex;
@@ -345,6 +381,22 @@ body {
                 }
             }
         }
+    }
+
+    .copyRight {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 15px;
+        padding: 1px 50px;
+        flex-wrap: wrap-reverse;
+
+        p {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 10px;
+            margin: 0;
+        }
+
     }
 }
 

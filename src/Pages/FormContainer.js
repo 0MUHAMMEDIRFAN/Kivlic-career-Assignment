@@ -32,12 +32,12 @@ function FormContainer() {
                     </div>
                 </div>
                 <div className="cv">
-                    <div>
+                    {/* <div> */}
                         <p>Upload CV</p>
                         <label htmlFor="file"><p>Upload CV</p><img src={uploadIcon} alt="" /></label>
                             <input type="file" id='file' accept='text/plain, application/pdf,application/msword'/>
                         <p className='tip'>Select resume file (TXT, PDF or Word DOC)</p>
-                    </div>
+                    {/* </div> */}
 
                 </div>
                 <button type='submit'>Submit</button>
