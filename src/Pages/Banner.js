@@ -8,11 +8,11 @@ function Banner() {
             <div className="padding"></div>
             <div className="contents">
                 <div className="left">
-                    {/* <div className="careerDiv"> */}
 
                     <p className='careers'>Careers</p>
-                    {/* </div> */}
-                        {/* <p>Submit Your Resume <br /><span>Become discoverable for all of our roles</span></p> */}
+                    <div className="note">
+                        <p>Submit Your Resume <span>Become discoverable for all of our roles</span></p>
+                    </div>
                 </div>
                 <div className="right">
                     <img src={vacant} alt="" />
