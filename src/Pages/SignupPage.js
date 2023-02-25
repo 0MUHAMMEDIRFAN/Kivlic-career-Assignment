@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
+import Signup from '../Components/Signup'
 
-function Signup() {
+function SignupPage() {
   return (
     <>
       <Navbar/>
+      <Signup/>
     </>
   )
 }
 
-export default Signup
+export default SignupPage

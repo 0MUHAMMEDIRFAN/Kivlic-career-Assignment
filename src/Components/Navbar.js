@@ -14,17 +14,17 @@ function Navbar() {
     return (
         <div className='navbar' onMouseLeave={close}>
             <div className="nav none" onClick={()=>setToggle(!toggle)}></div>
-            <img src={logo} alt="" className="logo" onClick={()=>history("/")} />
+            <img src={logo} alt="" className="logo" onClick={()=>history("/Kivlic-career-Assignment/")} />
             <ul className={toggle ? "navLinks" : "navLinks hide"}>
-                <li onClick={()=>history("/about")}>About us</li>
-                <li onClick={()=>history("/services")}>Services</li>
-                <li onClick={()=>history("/pricing")}>Pricing</li>
-                <li onClick={()=>history("/contact")}>Contact</li>
+                <li onClick={()=>history("/Kivlic-career-Assignment/about")}>About us</li>
+                <li onClick={()=>history("/Kivlic-career-Assignment/services")}>Services</li>
+                <li onClick={()=>history("/Kivlic-career-Assignment/pricing")}>Pricing</li>
+                <li onClick={()=>history("/Kivlic-career-Assignment/contact")}>Contact</li>
             </ul>
-            <div className={toggle ? "signin" : "signin hide"}>
-                <p className='child' onClick={()=>history("/login")}>Login</p>
-                <p className='child'onClick={()=>history("/signup")}>SignUp</p>
-            </div>
+            <ul className={toggle ? "signin" : "signin hide"}>
+                <li className='child' onClick={()=>history("/Kivlic-career-Assignment/login")}>Login</li>
+                <li className='child'onClick={()=>history("/Kivlic-career-Assignment/signup")}>SignUp</li>
+            </ul>
         </div>
     )
 }

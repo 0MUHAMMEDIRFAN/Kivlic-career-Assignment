@@ -29,18 +29,19 @@
     label {
         border: #707070 1px solid;
         outline: none;
-        height: 50px;
+        min-height: 50px;
         width: 300px;
         padding-inline: 15px;
         border-radius: 15px;
         font-size: 15px;
+        position: relative;
 
         @include mobile {
             width: 230px;
         }
     }
 
-    :invalid {
+    .inputBlur:invalid {
         border-color: red;
         border-width: 2px;
         animation: shake .2s;
@@ -58,8 +59,27 @@
     button,
     input[type="file"],
     a,
+    Link,
     label {
         cursor: pointer;
+    }
+
+    a,Link{
+        color: #04A8E8;
+    }
+
+    button{
+        background: #04A8E8;
+        border: none;
+        height: 50px;
+        width: 180px;
+        color: #fff;
+        border-radius: 15px;
+        outline: none;
+        transition: all ease .1s;
+    }
+    button:active{
+        scale: 95%;
     }
 
     .none {
@@ -124,7 +144,7 @@ body {
             border-radius: 20px;
         }
 
-        .navLinks {
+        .navLinks,.signin {
             display: flex;
             list-style: none;
             gap: 50px;
@@ -143,6 +163,7 @@ body {
             }
 
             @include tablet {
+                flex-direction: column;
                 width: 177px;
                 height: 202px;
                 position: absolute;
@@ -154,7 +175,6 @@ body {
                 border-radius: 20px;
                 overflow: hidden;
                 backdrop-filter: blur(7px);
-                flex-direction: column;
                 text-align: center;
                 color: #000;
 
@@ -174,36 +194,14 @@ body {
 
         
         .signin {
-            display: flex;
             gap: 20px;
             transition: all .2s ease .1s ;
             
             
             @include tablet {
-                flex-direction: column;
-                position: absolute;
-                left: 20px;
-                overflow: hidden;
                 top: 264px;
-                gap: 0;
-                width: 177px;
                 height: 102px;
-                text-align: center;
-                border: #444444 1px solid;
-                border-radius: 20px;
-                color: #000;
-                backdrop-filter: blur(7px);
-                
-                p {
-                    width: 175px;
-                    height: 50px;
-                    margin: 0;
-                    padding: 10px;
-                }
-                
-                p:not(:last-child) {
-                    border-bottom: #444444 1px solid;
-                }
+                gap: 0;
                 
             }
         }
@@ -234,7 +232,6 @@ body {
         background-attachment: fixed;
         background-repeat: no-repeat;
 
-        // overflow: hidden;
         .padding {
             height: 60px;
             width: 100%;
@@ -385,6 +382,7 @@ body {
 
             .cv {
                 display: flex;
+                position: relative;
                 flex-direction: column;
 
                 @include tablet {
@@ -395,32 +393,39 @@ body {
                 label {
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
                     background: #BFBFBF;
-
-
-
+                    
+                    
+                    
+                    p{
+                        padding-right: 5px;
+                        overflow: hidden;
+                        overflow-wrap: break-word;
+                    }
                     img {
-                        height: 100%;
+                        height: 50px;
                         padding-block: 15px;
                     }
 
                 }
+                .file{
+                    border: 2px solid rgb(0, 255, 0);
+                }
 
                 input {
-                    display: none;
+                    opacity: 0;
+                    position: absolute;
+                    top: 30%;
+                    z-index: -1;
                 }
             }
 
             button {
-                background: #04A8E8;
                 height: 50px;
                 width: 180px;
-                color: #fff;
-                border-radius: 15px;
                 font-size: 20px;
                 margin-top: 30px;
-                border: none;
-                outline: none;
             }
         }
     }
@@ -539,6 +544,52 @@ body {
         }
 
     }
+
+    .login{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 70px);
+        width: 100%;
+        margin-top: 70px;
+        padding: 10px;
+        // overflow: hidden;
+
+        .loginBox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: #e0e0e0;
+            border-radius: 20px;
+            padding: 20px;
+
+            input::before{
+                overflow: visible;
+                content: attr(name);
+                position: absolute;
+                bottom: 100px;
+                left: 100px;
+                background: #a03131;
+                width: 10px;
+                height: 20px;
+            }
+
+            button{
+                width: 100%;
+                margin-top: 20px;
+            }
+            h6,h1,p{
+                margin: 0;
+            }
+            p{
+                align-self: baseline;
+
+            }
+        }
+    }
+
 }
 
 @keyframes shake {
