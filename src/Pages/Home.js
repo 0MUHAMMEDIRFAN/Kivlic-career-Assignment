@@ -7,6 +7,7 @@ import FormContainer from '../Components/FormContainer'
 import Navbar from '../Components/Navbar'
 
 function Home() {
+
     return (
         <div>
             <Navbar />

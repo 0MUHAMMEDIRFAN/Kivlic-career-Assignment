@@ -1,5 +1,5 @@
 import "./style.scss"
-// import { useEffect, useContext } from "react"
+import { useEffect, useContext } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
@@ -8,19 +8,23 @@ import About from "./Pages/About";
 import Services from "./Pages/Services";
 import Pricing from "./Pages/Pricing";
 import Contact from "./Pages/Contact";
-// import { FirebaseContext, AuthContext } from "./store/Context"
+import { AuthContext } from "./store/Context"
+import firebase from "firebase/compat/app"
+import "firebase/compat/auth"
+import "firebase/compat/firestore"
+import Account from "./Components/Account";
+
 
 
 function App() {
 
-  // const { firebase } = useContext(FirebaseContext)
-  // const { setUser } = useContext(AuthContext)
+  const { setUser } = useContext(AuthContext)
 
-  // useEffect(()=>{
-  //   firebase.auth().onAuthstateChanged((user)=>{
-  //     setUser(user)
-  //   })
-  // })
+  useEffect(()=>{
+    firebase.auth().onAuthStateChanged((user)=>{
+      setUser(user)
+    })
+  })
 
   return (
     <div className="App">
@@ -33,6 +37,7 @@ function App() {
           <Route path="/Kivlic-career-Assignment/services" element={<Services />} />
           <Route path="/Kivlic-career-Assignment/pricing" element={<Pricing />} />
           <Route path="/Kivlic-career-Assignment/contact" element={<Contact />} />
+          <Route path="/Kivlic-career-Assignment/account" element={<Account />} />
         </Routes>
       </Router>
     </div>

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from '../Hooks/Form'
 import uploadIcon from "../images/upload.png"
+import { AuthContext, FirebaseContext } from '../store/Context';
+import "firebase/compat/storage"
+
 
 function FormContainer() {
 
@@ -11,14 +14,44 @@ function FormContainer() {
         phone: "",
         file: ""
     });
+    const [resume, setResume] = useState(null)
 
+    const { user } = useContext(AuthContext)
+    const { Firebase } = useContext(FirebaseContext)
+    const fileChange = (event) => {
+        handleChange(event);
+        if (event.target.files[0]) {
+            let s = event.target.files[0].type;
+            if (s === "text/plain" || s === "application/pdf" || s === "application/msword") {
+                setResume(event.target.files[0])
+            } else {
+                setResume("")
+            }
+        } else {
+            setResume("")
+        }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleChange("")
-        document.querySelectorAll(".inputBlur").forEach(el => el.classList.remove("inputBlur"))
-        document.getElementById("file").value="";
-        console.log("submitted")
+        if (user) {
+            handleChange("")
+            document.querySelectorAll(".inputBlur").forEach(el => el.classList.remove("inputBlur"))
+            document.getElementById("file").value = "";
+            console.log("submitted")
+            Firebase.storage().ref("profiles/" + user.uid + "/resume/" + value.fname+value.lname).put(resume)
+            .then((ref) => {
+                console.log("stored")
+            //     ref.getDownloadURL().then((url) => {
+            //         console.log(url);
+            //         Firebase.firestore().collection("users").doc(user.uid).set({
+            //             resume: url
+            //         }).then(() => console.log("stored on firebase"));
+            //     })
+            })
+        } else {
+            alert("Login First And Continue")
+        }
     }
     const handleBlur = (e) => {
         e.target.classList.add("inputBlur")
@@ -55,8 +88,8 @@ function FormContainer() {
                 </div>
                 <div className="cv">
                     <p>Upload CV</p>
-                    <label htmlFor="file" className={value.file ? "file" : ""}><p>{value.file ? value.file :"Upload CV"}</p><img src={uploadIcon} alt="" /></label>
-                    <input type="file" id='file' name='file' accept='text/plain, application/pdf,application/msword' onChange={handleChange} required />
+                    <label htmlFor="file" className={value.file ? "file" : ""}><p>{value.file ? value.file : "Upload CV"}</p><img src={uploadIcon} alt="" /></label>
+                    <input type="file" id='file' name='file' accept='text/plain, application/pdf,application/msword' onChange={fileChange} required />
                     <p className='tip'>Select resume file (TXT, PDF or Word DOC)</p>
                 </div>
                 <button type='submit'>Submit</button>
