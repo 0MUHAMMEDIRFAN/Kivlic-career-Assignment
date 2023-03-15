@@ -33,7 +33,7 @@ function Navbar() {
                 :
                 <ul className={toggle ? "signin" : "signin hide"}>
                     <li className='child' onClick={() => history("/Kivlic-career-Assignment/login")}>Login</li>
-                    <li className='child' onClick={() => history("/Kivlic-career-Assignment/signup")}>SignUp</li>
+                    {/* <li className='child' onClick={() => history("/Kivlic-career-Assignment/signup")}>SignUp</li> */}
                 </ul>}
         </div>
     )
