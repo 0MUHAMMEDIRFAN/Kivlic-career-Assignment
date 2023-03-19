@@ -46,6 +46,7 @@ function Signup() {
                             console.log("data stored");
                             firebase.auth().signInWithEmailAndPassword(value.email, value.password).then(() => {
                                 console.log("signed success");
+                                window.popup("Signin Success");
                                 navigate("/Kivlic-career-Assignment");
                             })
                         })
@@ -69,7 +70,7 @@ function Signup() {
     return (
         <div className='login'>
             <form className="loginBox" onSubmit={handleSubmit}>
-                <h1>Signup</h1>
+                <h1>SIGN UP</h1>
                 <div>
                     <input type="text" name='username' value={value.username} onChange={handleChange} required />
                     <p>User Name</p>

@@ -42,6 +42,7 @@ function FormContainer() {
             Firebase.storage().ref("profiles/" + user.uid + "/resume/" + value.fname+value.lname).put(resume)
             .then((ref) => {
                 console.log("stored")
+                window.popup("CV Sent")
             //     ref.getDownloadURL().then((url) => {
             //         console.log(url);
             //         Firebase.firestore().collection("users").doc(user.uid).set({

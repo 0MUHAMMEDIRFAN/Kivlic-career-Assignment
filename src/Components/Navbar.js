@@ -1,9 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from "../images/logo.png"
 import { AuthContext } from '../store/Context';
 
-function Navbar() {
+function Navbar(props) {
+
+    useEffect(() => {
+        const currentNav = document.getElementById(props.currentNav)
+        if (currentNav) {
+            currentNav.style.color = "#20DE96"
+            currentNav.style.borderBottom = "1px #000 solid"
+        }
+    })
 
     const history = useNavigate();
     const [toggle, setToggle] = useState(false)
@@ -20,20 +28,19 @@ function Navbar() {
             </div>
             <img src={logo} alt="" className="logo" onClick={() => history("/Kivlic-career-Assignment/")} />
             <ul className={toggle ? "navLinks" : "navLinks hide"}>
-                <li onClick={() => history("/Kivlic-career-Assignment/about")}>About us</li>
-                <li onClick={() => history("/Kivlic-career-Assignment/services")}>Services</li>
-                <li onClick={() => history("/Kivlic-career-Assignment/pricing")}>Pricing</li>
-                <li onClick={() => history("/Kivlic-career-Assignment/contact")}>Contact</li>
+                <li id='AboutUs' onClick={() => history("/Kivlic-career-Assignment/about")}>About us</li>
+                <li id='Services' onClick={() => history("/Kivlic-career-Assignment/services")}>Services</li>
+                <li id='Pricing' onClick={() => history("/Kivlic-career-Assignment/pricing")}>Pricing</li>
+                <li id='Contact' onClick={() => history("/Kivlic-career-Assignment/contact")}>Contact</li>
             </ul>
 
             {user ?
                 <ul className={toggle ? "signin" : "signin hide"}>
-                    <li className='child' onClick={() => history("/Kivlic-career-Assignment/account")}><i className='bx bxs-user-circle'></i>Account</li>
+                    <li id='Account' className='child' onClick={() => history("/Kivlic-career-Assignment/account")}><i className='bx bxs-user-circle'></i>Account</li>
                 </ul>
                 :
                 <ul className={toggle ? "signin" : "signin hide"}>
-                    <li className='child' onClick={() => history("/Kivlic-career-Assignment/login")}>Login</li>
-                    {/* <li className='child' onClick={() => history("/Kivlic-career-Assignment/signup")}>SignUp</li> */}
+                    <li id='Login' className='child' onClick={() => history("/Kivlic-career-Assignment/login")}>LOGIN</li>
                 </ul>}
         </div>
     )

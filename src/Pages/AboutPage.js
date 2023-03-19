@@ -1,14 +1,16 @@
 import React from 'react'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
+import About from "../Components/About"
 
-function About() {
+function AboutPage() {
   return (
     <div>
-      <Navbar/>
+      <Navbar currentNav="AboutUs"/>
+      <About/>
       <Footer/>
     </div>
   )
 }
 
-export default About
+export default AboutPage

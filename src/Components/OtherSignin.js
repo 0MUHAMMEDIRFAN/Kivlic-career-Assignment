@@ -10,22 +10,23 @@ function OtherSignin() {
 
     return (
         <div className='otherSignin'>
-            <button onClick={()=>{
+            {/* <button onClick={()=>{
 
-            }}> <span className='icon emailIcon'></span> Continue With Email</button>
-            <center className='or'>OR</center>
+            }}> <span className='icon emailIcon'></span> Continue With Email</button> */}
+            {/* <center className='or'>OR</center> */}
             <button onClick={() => {
                 let provider = new firebase.auth.GoogleAuthProvider();
                 firebase.auth().signInWithPopup(provider).then((result) => {
                     setUser(result.user)
+                    window.popup("Login Success")
                     navigate("/Kivlic-career-Assignment");
                 }).catch((error) => {
                     console.log(error)
                 })
-            }}> <span className='icon googleIcon'></span> Continue With Google</button>
+            }}> <span className='icon googleIcon'></span>Continue With Google</button>
             <button onClick={()=>{
 
-            }}> <span className='icon phoneIcon'></span> Continue With Phone</button>
+            }}> <span className='icon phoneIcon'></span>Continue With Phone</button>
         </div>
     )
 }

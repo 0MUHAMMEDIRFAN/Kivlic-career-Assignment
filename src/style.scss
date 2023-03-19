@@ -87,6 +87,7 @@
 
     button:active {
         scale: 95%;
+        filter: grayscale(50%);
     }
 
     .none {
@@ -95,7 +96,8 @@
         // height: 0;
         // border: none;
     }
-    .error{
+
+    .error {
         color: red !important;
     }
 
@@ -177,6 +179,7 @@ body {
                 transition: all ease .2s;
                 cursor: pointer;
                 display: flex;
+                justify-content: center;
                 align-items: center;
 
             }
@@ -229,7 +232,7 @@ body {
 
             @include tablet {
                 top: 264px;
-                height: 102px;
+                height: 52px;
                 gap: 0;
 
             }
@@ -612,12 +615,25 @@ body {
             justify-content: center;
             align-items: center;
             gap: 10px;
-            // background: #e0e0e0;
             border: 1px solid #DADCE0;
             border-radius: 20px;
             padding: 40px 40px;
             width: 448px;
 
+            .forgetPassword {
+                font-size: 12px;
+                display: flex;
+                justify-content: space-between;
+
+                span:first-child {
+                    color: red;
+
+                }
+
+                span:last-child {
+                    color: #04A8E8;
+                }
+            }
 
             div {
                 position: relative;
@@ -647,6 +663,7 @@ body {
                 }
 
                 p {
+                    font-size: 15px;
                     position: absolute;
                     pointer-events: none;
                     left: 20px;
@@ -655,7 +672,8 @@ body {
                     transition: 0.2s ease all;
                     color: #5f6368;
                 }
-                span{
+
+                span {
                     color: #5f6368;
                     font-size: 12px;
                     font-weight: 500;
@@ -665,17 +683,19 @@ body {
                     align-self: flex-start;
                 }
             }
-            
+
 
             .button {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin-top: 20px;
-                h6{
+
+                h6 {
                     margin-left: 10px;
                 }
-                button{
+
+                button {
                     width: fit-content;
                     padding-inline: 20px;
                     height: 36px;
@@ -851,19 +871,20 @@ body {
     .otherSignin {
         display: flex;
         flex-direction: column;
+        width: 448px;
 
-        .or {
-            font-size: 18px;
-            font-weight: 500;
-            margin: 10px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
+        // .or {
+        //     font-size: 18px;
+        //     font-weight: 500;
+        //     margin: 10px;
+        //     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        // }
 
         button {
-            width: 340px;
+            width: 100%;
             background: #fff;
-            color: #000;
-            border: 1px solid #707070;
+            color: #5f6368;
+            border: 1px solid #DADCE0;
             margin-top: 10px;
             text-align: left;
 
@@ -882,10 +903,48 @@ body {
                 background: url("./images/cell-phone.png") transparent 5px 50% no-repeat;
             }
 
-            .emailIcon {
-                background: url("./images/mail.png") transparent 5px 50% no-repeat;
-            }
+            // .emailIcon {
+            //     background: url("./images/mail.png") transparent 5px 50% no-repeat;
+            // }
 
+        }
+
+        @include mobileL() {
+            width: 100%;
+            padding: 0px 40px;
+        }
+
+        @include mobile() {
+            padding: 0px 24px;
+
+            button {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .popup {
+        background: #282828;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 250px;
+        min-height: 50px;
+        border-radius: 10px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        padding: 10px;
+        padding-right: 30px;
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            cursor: pointer;
+            font-size: 25px;
         }
     }
 

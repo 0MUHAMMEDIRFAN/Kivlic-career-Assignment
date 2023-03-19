@@ -5,7 +5,7 @@ import Signup from '../Components/Signup'
 function SignupPage() {
   return (
     <>
-      <Navbar/>
+      <Navbar currentNav="Login" />
       <Signup/>
     </>
   )

@@ -1,14 +1,15 @@
 import React from 'react'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
-
-function Pricing() {
+import Contact from "../Components/Contact"
+function ContactPage() {
   return (
     <div>
-      <Navbar/>
+      <Navbar currentNav="Contact" />
+      <Contact/>
       <Footer/>
     </div>
   )
 }
 
-export default Pricing
+export default ContactPage

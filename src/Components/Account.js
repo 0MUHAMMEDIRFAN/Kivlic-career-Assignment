@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
 import firebase from 'firebase/compat/app'
 import { AuthContext, FirebaseContext } from '../store/Context'
 import { useNavigate } from 'react-router-dom'
@@ -41,7 +39,7 @@ function Account() {
             ref.getDownloadURL().then((url) => {
                 console.log(url)
                 user.updateProfile({ photoURL: url })
-                alert("profile picture updated")
+                window.popup("profile picture updated")
 
             })
         })
@@ -66,7 +64,6 @@ function Account() {
 
     return (
         <div className='account'>
-            <Navbar />
             {user &&
                 <div className="info">
                     <div className="img">
@@ -75,8 +72,7 @@ function Account() {
                     <div className="details">
                         <h1>{user.displayName}</h1>
                         <h3>{user.email}<i className={user.emailVerified ? 'bx bxs-check-circle' : 'bx bxs-x-circle'} style={user.emailVerified ? { color: "green" } : { color: "red" }} title="Email not verified">{user.emailVerified || <span onClick={() => {
-                            user.sendEmailVerification()
-                                .then(() => alert("varification email sent to your email ,Check your email"))
+                            user.sendEmailVerification().then(() => window.popup("varification email sent to your email ,Check your email"))
                         }}>Verify</span>}</i></h3>
                     </div>
                 </div>
@@ -91,7 +87,7 @@ function Account() {
                 <label htmlFor="profile">
                     {image ?
                         <img height="100%" width="100%" src={image && URL.createObjectURL(image)} alt="posts" /> :
-                        <>Drag & drop to Upload File <span>OR</span> <button>Browse File</button></>
+                        <>Click to Upload picture <span></span> <button>Browse File</button></>
                     }
                 </label>
                 <button>Save & Update</button>
@@ -99,12 +95,17 @@ function Account() {
 
             <div className="btn">
 
-                <button onClick={() => { firebase.auth().signOut().then(() => navigate("/Kivlic-career-Assignment/"), console.log("signOut"), alert("signed Out succesfull")) }}>Logout</button>
+                <button onClick={() => {
+                    firebase.auth().signOut().then(() => {
+                        navigate("/Kivlic-career-Assignment/");
+                        console.log("SignOut");
+                        window.popup("Signed Out Success")
+                    })
+                }}>Logout</button>
 
                 <button onClick={() => { setOpen(true) }}>Edit Profile</button>
 
             </div>
-            <Footer />
         </div>
     )
 }

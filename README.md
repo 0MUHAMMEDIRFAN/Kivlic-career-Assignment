@@ -17,7 +17,8 @@
  * Login With email and password
  <!-- * Password Reset -->
  * Email verification
- <!-- * Error showing when getting error -->
+ * Custom Popup alert BOX
+ * Error showing when getting error,(singin time)
  * Navbar with new Design
  * shake effect on input element get invalid
  * only allowed `.pdf, .text, .txt, .doc, .dot ` type Files on CV
