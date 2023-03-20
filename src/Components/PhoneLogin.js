@@ -6,7 +6,7 @@ import OtherSignin from './OtherSignin';
 
 function PhoneLogin() {
     const navigate = useNavigate();
-   
+
     const [value, handleChange] = useForm({
         phoneNumber: "",
         Otp: ""
@@ -17,17 +17,9 @@ function PhoneLogin() {
             'size': 'invisible',
             'callback': (response) => {
                 console.log("verified")
+                console.log(response)
             }
         });
-        console.log(window.recaptchaVerifier)
-        firebase.auth().signInWithPhoneNumber(value.phoneNumber, window.recaptchaVerifier).then((confirmationResult) => {
-            console.log("Code sent")
-            console.log(confirmationResult)
-            window.confirmationResult = confirmationResult;
-        }).catch((error) => {
-            console.log(error)
-        })
-
     }
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,12 +39,12 @@ function PhoneLogin() {
                     <input type="text" name='phoneNumber' required onChange={handleChange} value={value.phoneNumber} />
                     <p>Enter Phone Number</p>
                 </div>
-                <div>
+                <div id='otpContainer'>
                     <input type="text" name='Otp' required onChange={handleChange} value={value.Otp} />
                     <p>Enter OTP</p>
                 </div>
                 <div className="button">
-                    <button type='button' onClick={handleSend}>Send Code</button>
+                    <button type='button' id='sendCode' onClick={handleSend}>Send Code</button>
                     <button id='Login'>Login</button>
                 </div>
             </form>
