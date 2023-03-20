@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/0muhammedirfan/kivlic-career-assignment/settings/domains/static/css/main.4d480c91.css",
-    "main.js": "/0muhammedirfan/kivlic-career-assignment/settings/domains/static/js/main.71737db3.js",
-    "static/media/VACANT.png": "/0muhammedirfan/kivlic-career-assignment/settings/domains/static/media/VACANT.ba69c662e46518bc8122.png",
-    "index.html": "/0muhammedirfan/kivlic-career-assignment/settings/domains/index.html",
-    "main.4d480c91.css.map": "/0muhammedirfan/kivlic-career-assignment/settings/domains/static/css/main.4d480c91.css.map",
-    "main.71737db3.js.map": "/0muhammedirfan/kivlic-career-assignment/settings/domains/static/js/main.71737db3.js.map"
+    "main.css": "/static/css/main.4d480c91.css",
+    "main.js": "/static/js/main.92447754.js",
+    "static/media/VACANT.png": "/static/media/VACANT.ba69c662e46518bc8122.png",
+    "index.html": "/index.html",
+    "main.4d480c91.css.map": "/static/css/main.4d480c91.css.map",
+    "main.92447754.js.map": "/static/js/main.92447754.js.map"
   },
   "entrypoints": [
     "static/css/main.4d480c91.css",
-    "static/js/main.71737db3.js"
+    "static/js/main.92447754.js"
   ]
 }
