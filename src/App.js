@@ -2,7 +2,6 @@ import "./style.scss"
 import { useEffect, useContext } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./Pages/Home";
-import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
 import AboutPage from "./Pages/AboutPage";
 import ServicesPage from "./Pages/ServicesPage";
@@ -14,6 +13,8 @@ import "firebase/compat/firestore"
 import AccountPage from "./Pages/AccountPage";
 import popup from "./Components/popup";
 import ContactPage from "./Pages/ContactPage";
+import PhoneLoginPage from "./Pages/PhoneLoginPage";
+import EmailLoginPage from "./Pages/EmailLoginPage";
 
 
 
@@ -26,6 +27,7 @@ function App() {
   useEffect(()=>{
     firebase.auth().onAuthStateChanged((user)=>{
       setUser(user)
+      console.log(user)
     })
   })
 
@@ -34,7 +36,8 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="Kivlic-career-Assignment/" element={<Home />} />
-          <Route path="/Kivlic-career-Assignment/login" element={<LoginPage />} />
+          <Route path="/Kivlic-career-Assignment/emaillogin" element={<EmailLoginPage />} />
+          <Route path="/Kivlic-career-Assignment/phonelogin" element={<PhoneLoginPage />} />
           <Route path="/Kivlic-career-Assignment/signup" element={<SignupPage />} />
           <Route path="/Kivlic-career-Assignment/about" element={<AboutPage />} />
           <Route path="/Kivlic-career-Assignment/services" element={<ServicesPage />} />

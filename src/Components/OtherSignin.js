@@ -3,17 +3,14 @@ import { useNavigate } from "react-router-dom"
 import firebase from 'firebase/compat/app';
 import { AuthContext } from '../store/Context';
 
-function OtherSignin() {
+function OtherSignin(props) {
 
     const navigate = useNavigate();
     const { setUser } = useContext(AuthContext)
 
     return (
         <div className='otherSignin'>
-            {/* <button onClick={()=>{
-
-            }}> <span className='icon emailIcon'></span> Continue With Email</button> */}
-            {/* <center className='or'>OR</center> */}
+           
             <button onClick={() => {
                 let provider = new firebase.auth.GoogleAuthProvider();
                 firebase.auth().signInWithPopup(provider).then((result) => {
@@ -24,10 +21,16 @@ function OtherSignin() {
                     console.log(error)
                 })
             }}> <span className='icon googleIcon'></span>Continue With Google</button>
-            <button onClick={()=>{
 
-            }}> <span className='icon phoneIcon'></span>Continue With Phone</button>
-        </div>
+            {props.email ?
+                <button onClick={() => {
+                    navigate("/Kivlic-career-Assignment/emaillogin");
+                }}> <span className="icon emailIcon"></span>Continue With Email</button>
+                :
+                <button onClick={() => {
+                    navigate("/Kivlic-career-Assignment/phonelogin");
+                }}> <span className="icon phoneIcon"></span>Continue With Phone</button>
+            }        </div>
     )
 }
 

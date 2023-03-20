@@ -90,7 +90,7 @@ function Signup() {
                     <span className='passwordHint'>{passwordHint}</span>
                 </div>
                 <div className="button">
-                    <h6><Link to={"/Kivlic-career-Assignment/login"}>Sign in instead</Link></h6>
+                    <h6><Link to={"/Kivlic-career-Assignment/emaillogin"}>Sign in instead</Link></h6>
                     <button>Signup</button>
                 </div>
             </form>

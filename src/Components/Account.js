@@ -61,53 +61,65 @@ function Account() {
 
 
     }
+    if (user)
+        return (
+            <div className='account'>
+                {user &&
+                    <div className="info">
+                        <div className="img">
+                            <img src={user.photoURL || "https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png"} alt="loading" />
+                        </div>
+                        <div className="details">
+                            <h1>{user.displayName}</h1>
+                            {user.email && <h3>{user.email}<i className={user.emailVerified ? 'bx bxs-check-circle' : 'bx bxs-x-circle'} style={user.emailVerified ? { color: "green" } : { color: "red" }} title="Email not verified">
+                                {user.emailVerified ||
+                                    <span onClick={() => {
+                                        user.sendEmailVerification().then(() => window.popup("varification email sent to your email ,Check your email"))
+                                    }}>Verify</span>}
+                            </i></h3>}
+                            <h3>{user.phoneNumber}</h3>
+                        </div>
+                    </div>
+                }
 
-    return (
-        <div className='account'>
-            {user &&
-                <div className="info">
-                    <div className="img">
-                        <img src={user.photoURL || "https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png"} alt="loading" />
-                    </div>
-                    <div className="details">
-                        <h1>{user.displayName}</h1>
-                        <h3>{user.email}<i className={user.emailVerified ? 'bx bxs-check-circle' : 'bx bxs-x-circle'} style={user.emailVerified ? { color: "green" } : { color: "red" }} title="Email not verified">{user.emailVerified || <span onClick={() => {
-                            user.sendEmailVerification().then(() => window.popup("varification email sent to your email ,Check your email"))
-                        }}>Verify</span>}</i></h3>
-                    </div>
+                {open && <form className="update" onSubmit={handleUpdate}>
+                    <i className='bx bx-x' onClick={() => setOpen(false)} ></i>
+                    <p>Update username</p>
+                    <input type="text" name='username' id='username' value={value.username} onChange={handleChange} />
+                    <p>Update Profile picture</p>
+                    <input type="file" id='profile' name='profile' accept='image/png ,image/jpeg ,image/jpg, image/webp' onChange={fileChange} />
+                    <label htmlFor="profile">
+                        {image ?
+                            <img height="100%" width="100%" src={image && URL.createObjectURL(image)} alt="posts" /> :
+                            <>Click to Upload picture <span></span> <button>Browse File</button></>
+                        }
+                    </label>
+                    <button>Save & Update</button>
+                </form>}
+                <div className="userDetails">
+                    <ul>
+                        <li><h4>Username</h4><span>{user.displayName || "No"}</span></li>
+                        <li><h4>Email Address</h4><span>{user.email || "No"}</span></li>
+                        <li><h4>Phone Number</h4><span>{user.phoneNumber || "No"}</span></li>
+                        <li><h4>Email Verified</h4><span>{user.emailVerified ? "Yes" : "No"}</span></li>
+                    </ul>
                 </div>
-            }
 
-            {open && <form className="update" onSubmit={handleUpdate}>
-                <i className='bx bx-x' onClick={() => setOpen(false)} ></i>
-                <p>Update username</p>
-                <input type="text" name='username' id='username' value={value.username} onChange={handleChange} />
-                <p>Update Profile picture</p>
-                <input type="file" id='profile' name='profile' accept='image/png ,image/jpeg ,image/jpg, image/webp' onChange={fileChange} />
-                <label htmlFor="profile">
-                    {image ?
-                        <img height="100%" width="100%" src={image && URL.createObjectURL(image)} alt="posts" /> :
-                        <>Click to Upload picture <span></span> <button>Browse File</button></>
-                    }
-                </label>
-                <button>Save & Update</button>
-            </form>}
+                <div className="btn">
 
-            <div className="btn">
+                    <button onClick={() => {
+                        firebase.auth().signOut().then(() => {
+                            navigate("/Kivlic-career-Assignment/");
+                            console.log("SignOut");
+                            window.popup("Signed Out Success")
+                        })
+                    }}>Logout</button>
 
-                <button onClick={() => {
-                    firebase.auth().signOut().then(() => {
-                        navigate("/Kivlic-career-Assignment/");
-                        console.log("SignOut");
-                        window.popup("Signed Out Success")
-                    })
-                }}>Logout</button>
+                    <button onClick={() => { setOpen(true) }}>Edit Profile</button>
 
-                <button onClick={() => { setOpen(true) }}>Edit Profile</button>
-
+                </div>
             </div>
-        </div>
-    )
+        )
 }
 
 export default Account

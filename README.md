@@ -3,28 +3,28 @@
 ### Pages
 
 * Home
-* Login , SignUp
-* Account
+* Login (email, google, phone) , SignUp
+* Account details
 * About , Contact , Services , Pricing 
 
 
 ### tech specifications
  
  * User Sign in
- * Profile Updating
- <!-- * drag and drop -->
  * Firebase authentication
+ * Login With Mobile Number
  * Login With email and password
- <!-- * Password Reset -->
- * Email verification
+ * Login With Google account
+ * Password Reset
  * Custom Popup alert BOX
- * Error showing when getting error,(singin time)
+ * Profile Updating
+ * Email verification
+ * Error showing when getting error,(signin time)
  * Navbar with new Design
  * shake effect on input element get invalid
  * only allowed `.pdf, .text, .txt, .doc, .dot ` type Files on CV
  * User interactive navbar on mobile and tablet
- * Responsive Footer
- * Responsive personal details Form
+ * Well Responsive in all devices 
 
 #### Click here to [Live Demo](https://0muhammedirfan.github.io/Kivlic-career-Assignment/).
 #### Github Source Code [Code](https://github.com/0MUHAMMEDIRFAN/Kivlic-career-Assignment).

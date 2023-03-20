@@ -40,7 +40,7 @@ function Navbar(props) {
                 </ul>
                 :
                 <ul className={toggle ? "signin" : "signin hide"}>
-                    <li id='Login' className='child' onClick={() => history("/Kivlic-career-Assignment/login")}>LOGIN</li>
+                    <li id='Login' className='child' onClick={() => history("/Kivlic-career-Assignment/emaillogin")}>LOGIN</li>
                 </ul>}
         </div>
     )
