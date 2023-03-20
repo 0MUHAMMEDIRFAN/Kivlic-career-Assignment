@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
 import Login from '../Components/Login'
 
-function LoginPage() {
+function EmailLoginPage() {
   return (
     <>
       <Navbar currentNav="Login"/>
@@ -11,4 +11,4 @@ function LoginPage() {
   )
 }
 
-export default LoginPage
+export default EmailLoginPage
